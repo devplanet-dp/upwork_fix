@@ -40,7 +40,12 @@ class CustomAlertDialog {
             child: Container(
               width: MediaQuery.of(context).size.width / 2,
               height: buttonHeight,
-              child: RaisedButton(
+              child: MaterialButton(
+                color: Colors.amber,
+                elevation: 2,
+                clipBehavior: Clip.antiAlias,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(7.0))),
                 child: Text(
                   "حسنا",
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -51,12 +56,6 @@ class CustomAlertDialog {
 
                   //Navigator.pop(context);
                 },
-                elevation: 5,
-                color: Colors.red,
-                textColor: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(7),
-                ),
               ),
             ),
           ),

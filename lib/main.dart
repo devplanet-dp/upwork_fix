@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:upwork_fix/ok_alert_dialog.dart';
 import 'package:upwork_fix/pdf_api.dart';
+import 'package:upwork_fix/pdf_screen2.dart';
 import 'package:upwork_fix/pdf_screen.dart';
 import 'package:upwork_fix/preference_helper.dart';
 
@@ -72,6 +73,24 @@ class _HomeViewState extends State<HomeView> {
                 );
               },
               child: Text('PDF view'),
+            ),
+            TextButton(
+              onPressed: () async {
+                File pdfFile =
+                    await PDFApi.loadPdfFromAsset('assets/books/sample.pdf');
+                int lastPage = await _preferenceHelper!.lastPage;
+                print(lastPage);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => PdfSample2View(
+                      path: pdfFile.path,
+                      lastPage: lastPage,
+                    ),
+                  ),
+                );
+              },
+              child: Text('PDF view 2'),
             ),
           ],
         ),

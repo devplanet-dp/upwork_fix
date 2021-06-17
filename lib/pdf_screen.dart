@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_pdfview/flutter_pdfview.dart';
+import 'package:native_pdf_view/native_pdf_view.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:upwork_fix/preference_helper.dart';
 
@@ -30,6 +31,7 @@ class _PDFScreenState extends State<PDFScreen> with WidgetsBindingObserver {
     //init shared preference
     _preferences = SharedPreferences.getInstance();
     _preferenceHelper = SharedPreferenceHelper(_preferences!);
+    
     super.initState();
   }
 
@@ -78,6 +80,7 @@ class _PDFScreenState extends State<PDFScreen> with WidgetsBindingObserver {
             },
             onViewCreated: (PDFViewController pdfViewController) async {
               _controller.complete(pdfViewController);
+            
             },
             onLinkHandler: (String? uri) {
               print('goto uri: $uri');

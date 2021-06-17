@@ -16,6 +16,7 @@ dependencies:
   path_provider: ^2.0.2
   flutter_pdfview: ^1.1.0
   shared_preferences: ^2.0.6
+  native_pdf_view: ^4.0.1
 
 dev_dependencies:
   flutter_test:
