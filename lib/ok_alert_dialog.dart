@@ -11,6 +11,7 @@ class CustomAlertDialog {
     AlertDialog alertDialog = AlertDialog(
       //backgroundColor: Colors.amber,
       elevation: 0,
+      clipBehavior: Clip.antiAlias,
       backgroundColor: Colors.transparent,
       content: Stack(
         alignment: Alignment.bottomCenter,
