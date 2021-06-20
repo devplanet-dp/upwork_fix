@@ -8,59 +8,61 @@ class CustomAlertDialog {
     // todo, button should in bottom center of AlertDialog!!!!!
     double buttonHeight = _newMediaQueryData.size.height * 0.06;
 
-    AlertDialog alertDialog = AlertDialog(
+    Dialog alertDialog = Dialog(
       //backgroundColor: Colors.amber,
-      elevation: 0,
-      clipBehavior: Clip.antiAlias,
       backgroundColor: Colors.transparent,
-      content: Stack(
-        alignment: Alignment.bottomCenter,
-        overflow: Overflow.visible,
-        children: [
-          Container(
-            padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 15),
-            width: MediaQuery.of(context).size.width,
-            decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.all(Radius.circular(7))),
-            height: contentMessageHeight,
-            child: Center(
-              child: Container(
-                color: Colors.blue,
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  message,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-                ),
-              ),
-            ),
-          ),
-          Positioned(
-            top: contentMessageHeight - (buttonHeight * 0.5),
-            child: Container(
-              width: MediaQuery.of(context).size.width / 2,
-              height: buttonHeight,
-              child: MaterialButton(
-                color: Colors.amber,
-                elevation: 2,
-                clipBehavior: Clip.antiAlias,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(7.0))),
-                child: Text(
-                  "حسنا",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                ),
-                onPressed: () {
-                  // todo, why cannot get into onPress, will check it in Users App??
-                  print('popup clicked');
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(7.0),
 
-                  //Navigator.pop(context);
-                },
+      ),
+      child: Container(
+        height: contentMessageHeight + buttonHeight,
+        child: Stack(
+          children: [
+            Container(
+              width: MediaQuery.of(context).size.width,
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.all(Radius.circular(7))),
+              height: contentMessageHeight,
+              child: Center(
+                child: Container(
+                  color: Colors.blue,
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    message,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                  ),
+                ),
               ),
             ),
-          ),
-        ],
+            Align(
+              alignment: Alignment(0,0.7),
+              child: GestureDetector(
+                child: MaterialButton(
+                  color: Colors.amber,
+                  elevation: 2,
+                  height: buttonHeight,
+                  minWidth: MediaQuery.of(context).size.width / 2,
+                  clipBehavior: Clip.antiAlias,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(7.0))),
+                  child: Text(
+                    "حسنا",
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                  onPressed: () {
+                    // todo, why cannot get into onPress, will check it in Users App??
+                    print('popup clicked');
+
+                    //Navigator.pop(context);
+                  },
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
       /*actions: <Widget>[
         Stack(
