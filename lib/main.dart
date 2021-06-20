@@ -52,8 +52,8 @@ class _HomeViewState extends State<HomeView> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextButton(
-              onPressed: () =>
-                  CustomAlertDialog.okAlertDialog(context, 'Hi all'),
+              onPressed: () => CustomAlertDialog.okAlertDialog(context,
+                  'පසුගිය දිනකදී ශ්‍රී ලංකාව තුළ, ඉන්දියාව පුරා වේගයෙන් පැතිර ගිය,'),
               child: Text('Show dialog'),
             ),
             TextButton(
